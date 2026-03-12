@@ -90,7 +90,7 @@ exports.updateUser = async (req, res) => {
             message: "Berhasil mengupdate user",
             payload: result
         })
-    } catch {
+    } catch (error) {
         res.status(500).json({
             success: false,
             message: error.message
@@ -101,7 +101,6 @@ exports.updateUser = async (req, res) => {
 exports.deleteUser = async (req, res) => {
     try {
         const id = req.params.id;
-
         if (!id) {
             res.status(400).json({
                 success: false,
